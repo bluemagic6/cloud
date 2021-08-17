@@ -4,6 +4,7 @@ const upload = require('./uploads/multer');
 const cloudinary = require('./uploads/cloudinary');
 const fs = require('fs');
 const { async } = require('q');
+const { urlencoded } = require('body-parser');
 const app = express();
 
 app.use(bodyParser,urlencoded({extended:false}))
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
     console.log("Hello world")
 });
 
-app.use('upload-images', upload.array('image'), async (req, res) => {
+app.use('/upload-images',upload.array('image'), async (req, res) => {
     const uploader = async (path) => await cloudinary.uploads(path, 'Images')
     
     if (req.method === 'POST')
