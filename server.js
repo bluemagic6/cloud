@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const upload = require('./multer');
-const cloudinary = require('./cloudinary');
+const upload = require('./uploads/multer');
+const cloudinary = require('./uploads/cloudinary');
 const fs = require('fs');
 const { async } = require('q');
 const app = express();
